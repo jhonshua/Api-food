@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize'); //Sequelize proporciona una gran cantidad de tipos de datos integrados . Para acceder a un tipo de datos incorporado, debe importar DataTypes. https://sequelize.org/docs/v7/other-topics/other-data-types/
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {

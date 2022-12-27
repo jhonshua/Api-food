@@ -121,6 +121,7 @@ export default function CreateRecipe() {
               name="summary"
               maxLength="1000"
               placeholder="Summary of your recipe"
+              rows="10"
               autoComplete="off"
               value={input.summary}
               onChange={(e) => handleChange(e)}
@@ -147,11 +148,12 @@ export default function CreateRecipe() {
               placeholder="1"
               value={input.healthScore}
               onChange={(e) => handleChange(e)}
-              className={styles.input}
+              className={styles.input2}
             ></input>
             {errors.healthScore && (
               <p className={styles.p}>{errors.healthScore}</p>
             )}
+            <br />
             <label className={styles.label}>Image: </label>
             <input
               type="url"
@@ -166,18 +168,44 @@ export default function CreateRecipe() {
             <button className={styles.b}>¡Create my recipe!</button>
           </div>
           <div className={styles.diets}>
+
             <label className={styles.labelD}> Select the Diets: </label>
+            <br />
+                  <br />
             {allDiets?.map((d) => {
               return (
                 <ul key={d.id}>
+
+                  <div>
+
+
+                  <div>
+
+                    {d.name.charAt(0).toUpperCase() + d.name.slice(1)}
+
+                  
+                  </div>
+
+                 
+
                   <input
                     type="checkbox"
                     name={d.name}
                     value={d.name}
                     onChange={(e) => handleCheckDiet(e)}
                     className={styles.names}
-                  />
-                  {d.name.charAt(0).toUpperCase() + d.name.slice(1)}
+                  /> 
+
+               
+
+
+
+                  </div>
+
+                 
+                 
+                  
+
                 </ul>
               );
             })}
