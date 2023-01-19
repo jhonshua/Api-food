@@ -2,10 +2,10 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const {DB_DEPLOY } = process.env;
-// DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT,
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT,DB_DEPLOY } = process.env;
 
-/*
+
+
  let sequelize =                     // configurar nuestra conexión a la base de datos usando sequelize
   process.env.NODE_ENV === "production"
     ? new Sequelize({
@@ -34,8 +34,8 @@ const {DB_DEPLOY } = process.env;
       `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`,
       { logging: false, native: false }
     );
-*/
 
+/*
 
 
 var sequelize = new Sequelize( DB_DEPLOY,{
@@ -43,6 +43,7 @@ var sequelize = new Sequelize( DB_DEPLOY,{
     native:false,
   });
 
+*/
 
 const basename = path.basename(__filename);
 
