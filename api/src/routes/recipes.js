@@ -69,5 +69,16 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+
+// RUTA POST -> /email ---------------------
+router.post('/email', async (req, res) => {
+
+    console.log(req.body);
+    res.send('received');
+    
+});
+
+
 //-------------------------------------------------------------------
 module.exports = router;

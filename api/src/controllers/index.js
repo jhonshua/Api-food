@@ -1,7 +1,15 @@
-const axios = require('axios');
+const axios = require('axios');// importamos axios 
 const { Recipe, Diet } = require('../db.js');
 
-// GET API INFO ------------------------------------------------------
+
+/*Axios es un cliente HTTP basado en promesasnode.js para el navegador. 
+Es isomorfo (= puede ejecutarse en el navegador y nodejs con la misma base de código). 
+En el lado del servidor usa el httpmódulo nativo node.js, mientras que en el cliente (navegador)
+ usa XMLHttpRequests. */
+
+
+ 
+// GET API INFO : ------------------------------------------------------fuente : https://axios-http.com/
 const getApiInfo = async () => {
     try {
         let info = await axios.get('https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5') // nos conectamos a nuestra api  pedimos la info de las 100 primeras paginas
@@ -9,7 +17,7 @@ const getApiInfo = async () => {
         let recipes = info.data.results.map(r => {
             return {
                 id: r.id,
-                title: r.title,
+                title: r.title, 
                 image: r.image,
                 summary: r.summary,
                 healthScore: r.healthScore,
