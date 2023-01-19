@@ -2,8 +2,18 @@
 
 # Individual Project - Henry Food
 
-<p align="right">
-  <img height="200" src="./cooking.png" />
+<p align="left">
+
+![ice_screenshot_20221226-205241](https://user-images.githubusercontent.com/109869139/209594974-a4c55fc6-4212-42b5-97d6-2a020a835e14.png)
+
+ ![ice_screenshot_20221226-205310](https://user-images.githubusercontent.com/109869139/209594372-55dedd88-a934-4c95-982c-8cc39097be94.png)
+ 
+ ![ice_screenshot_20221226-205348](https://user-images.githubusercontent.com/109869139/209594481-5df06994-9a4d-46dc-bb0d-3a853d5a0c51.png)
+ 
+ ![ice_screenshot_20221226-205428](https://user-images.githubusercontent.com/109869139/209594515-78ddcd66-244b-43fa-a193-06f9c4e60f2b.png)
+
+![ice_screenshot_20221226-205508](https://user-images.githubusercontent.com/109869139/209594542-1bb3d7c5-8d21-42b3-af09-576e3a56249a.png)
+
 </p>
 
 ## Objetivos del Proyecto
