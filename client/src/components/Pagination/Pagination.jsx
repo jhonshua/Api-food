@@ -5,13 +5,17 @@ import { changePage } from "../../redux/actions";
 import "./Pagination.css";
 
 export default function Pagination() {
+
   const dispatch = useDispatch();
+
   const recipes = useSelector((state) => state.recipes);
   const recipesPerPage = useSelector((state) => state.recipesPerPage);
   const currentPage = useSelector((state) => state.currentPage);
 
   const pageNumbers = [];
+
   const allRecipes = recipes.length;
+  
   for (let i = 1; i <= Math.ceil(allRecipes / recipesPerPage); i++) {
     pageNumbers.push(i);
   }

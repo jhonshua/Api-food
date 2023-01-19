@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import { postRecipe, getAllDiets, cleanRecipes, getAllRecipes } from "../../redux/actions";
 import validate from "./validate/validate";
 import swal from "sweetalert";
@@ -10,8 +10,9 @@ import NavBar2 from './NavBar2/NavBar2'
 import styles from "./CreateRecipe.module.css";
 
 export default function CreateRecipe() {
+
   const dispatch = useDispatch();
-  const history = useHistory();
+  const history = useHistory(); //hook  ... 
   const allRecipes = useSelector((state) => state.allRecipes);
   const allDiets = useSelector((state) => state.allDiets);
   const [errors, setErrors] = useState({});
@@ -27,11 +28,13 @@ export default function CreateRecipe() {
   });
 
   // HANDLES ----------------------------------------------------------------------------
+
   const handleChange = (e) => {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
     });
+
     setErrors(
       validate({
         ...input,
@@ -41,6 +44,7 @@ export default function CreateRecipe() {
   };
 
   // SELECCIONAR DIETA:
+
   const handleCheckDiet = (e) => {
     if (e.target.checked && !input.diets.includes(e.target.value)) {
       setInput({
@@ -55,26 +59,30 @@ export default function CreateRecipe() {
     }
   };
 
-  // REVISIÓN DEL FORMULARIO --------------------------------------
+  // REVISIÓN DEL FORMULARIO -------------------------al generar el evento submit
+
   const handleSubmit = (e) => {
-    e.preventDefault();
+
+    e.preventDefault();      // evitr se recarge la pagina al oprimir el boton del formulario
 
     if (Object.keys(errors).length !== 0) {
-      swal("Oops", "Complete the form!", "error");
-    } else if (!input.title.length) {
+      swal("Oops", "Complete the form!", "error");     //si la lonitud de los caracteres es menor de 0 sale el mensaje complete el formulario
+    } else if (!input.title.length) { // si el titulo esta vacio 
       swal("The title is required");
-    } else if (!input.diets.length) {
+    } else if (!input.diets.length) { //si la longitud de dieta es cero enviara el mesj selecione una dieta
       swal("Select at least one diet");
     } else if (
       allRecipes.find(
         (r) => r.title.toLowerCase() === input.title.toLowerCase()
       )
     ) {
-      swal("Incorrect", `The ${input.title} already exists`, "error");
+      swal("Incorrect", `The ${input.title} already exists`, "error");//si titulo de la receta exite enviara el msj que ya existe la receta
     } else {
-      dispatch(postRecipe(input));
+      dispatch(postRecipe(input));  //si todo esta correcto envia post con los datos
+      
       swal("Success", "¡Your recipe is created!", "success");
-      setInput({
+      
+      setInput({         
         title: "",
         summary: "",
         healthScore: "",
@@ -82,6 +90,8 @@ export default function CreateRecipe() {
         image: "",
         diets: [],
       });
+
+
       history.push("/home");
       dispatch(cleanRecipes());
       dispatch(getAllRecipes());
@@ -98,13 +108,16 @@ export default function CreateRecipe() {
     <div className={styles.create}>
 
       <NavBar2/>
- <div className={styles.titulo}>Create Recipe</div> 
+ <div className={styles.titulo}> Create Recipe</div> 
       <div className={styles.container}>
 
        
         <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
+
           <div className={styles.header}>
-            <label className={styles.label}>Title: </label>
+
+            <label className={styles.label}> Title: </label>
+
             <input
               type="text"
               name="title"
@@ -114,8 +127,11 @@ export default function CreateRecipe() {
               onChange={(e) => handleChange(e)}
               className={styles.input}
             ></input>
+
             {errors.title && <p className={styles.p}>{errors.title}</p>}
+
             <label className={styles.label}>Summary: </label>
+
             <textarea
               type="text"
               name="summary"
@@ -127,6 +143,7 @@ export default function CreateRecipe() {
               onChange={(e) => handleChange(e)}
               className={styles.textarea}
             ></textarea>
+
             {errors.summary && <p className={styles.p}>{errors.summary}</p>}
             <label className={styles.label}>Steps: </label>
             <textarea

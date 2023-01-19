@@ -16,12 +16,15 @@ export default function Filters({ setOrder }) {
   const allDiets = useSelector((state) => state.allDiets);
 
   // FILTRADOS ----------------------------------------------------
+
+  //genera patch filtrado por dietas
   const handleFilterDiets = (e) => {
     e.preventDefault();
     dispatch(filterDiets(e.target.value));
   };
 
   // ORDENAMIENTOS ------------------------------------------------
+  //por titulo
   const handleOrderTitle = (e) => {
     e.preventDefault();
     dispatch(orderTitle(e.target.value));
@@ -35,10 +38,10 @@ export default function Filters({ setOrder }) {
   };
 
   // LIMPIAR FILTRADOS -------------------------------------------
-  const handleClean = (e) => {
-    e.preventDefault();
-    dispatch(cleanRecipes());
-    dispatch(getAllRecipes());
+  const handleClean = (e) => {    //
+    e.preventDefault(); //evitar que el navegador se vuelva a cargar/actualizar .
+    dispatch(cleanRecipes()); //genera dos dispatch
+    dispatch(getAllRecipes()); 
   };
 
   //---------------------------------------------------------------
@@ -47,15 +50,23 @@ export default function Filters({ setOrder }) {
   }, [dispatch]);
 
   // ---------------------------------------------------------------
+
   return (
+
     <div className={styles.filters}>
       <button className={styles.reset} onClick={(e) => handleClean(e)}>
+
         Reload
+        
       </button>
+
       <select className={styles.select} onChange={(e) => handleFilterDiets(e)}>
         <option value="all">Select Diet</option>
         {allDiets?.map((d) => {
+
           return (
+
+
             <option key={d.id} value={d.name}>
               {d.name.charAt(0).toUpperCase() + d.name.slice(1)}
             </option>

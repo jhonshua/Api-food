@@ -15,9 +15,9 @@ export default function CardDetails() {
   useEffect(() => {
     dispatch(getRecipeDetail(id));
     dispatch(cleanDetail());
-  }, [dispatch]);
+  }, [dispatch]); 
 
-  return (
+  return (    
     <div className={styles.details}>
       {recipe && recipe ? (
         <div className={styles.container}>
@@ -28,7 +28,7 @@ export default function CardDetails() {
 
             <h2>{recipe.title}</h2>
 
-              <img
+              <img 
                 src={recipe.image ? recipe.image : img}
                 width="350px"
                 height="250px"
@@ -61,11 +61,11 @@ export default function CardDetails() {
           </div>
         </div>
       ) : (
-        <div className={styles.load}>
+        <div className={styles.load}> 
           <Loading />
         </div>
       )}
-      <Link to="/home">
+      <Link to="/home"> 
         <button className={styles.button}>Go back</button>
       </Link>
     </div>

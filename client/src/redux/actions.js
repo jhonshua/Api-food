@@ -17,6 +17,9 @@ export const CLEAN_DETAILS = 'CLEAN_DETAILS';
 
 
 // ALL RECIPES: Traigo recetas -> BACK ---------------------------------------------
+//hacemos una peticion axios async wait a nuestro back a la direccion que esta configurada en
+//nuestro router
+
 export const getAllRecipes = () => {
     return async (dispatch) => {
         try {

@@ -27,7 +27,11 @@ const Home = () => {
     indexOfLastRecipes
   );
 
-  //----------------------------------------------------------------
+
+
+
+  //------ si no tenemos recetas luego del primer renderizado generamos un dispatch con la accion 
+  //para que esta accion traiga del back la data que neceesitamos para renderizar las tarjetas
   useEffect(() => {
     if (allRecipes.length === 0) {
       dispatch(getAllRecipes());

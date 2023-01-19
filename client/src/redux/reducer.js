@@ -9,9 +9,11 @@ import {
     ORDER_SCORE,
     CLEAN_RECIPES,
     CLEAN_DETAILS,
-    FILTER_CREATED,
     CHANGE_PAGE
-} from './actions.js';
+
+} from './actions.js';  // importamos las acciones desde nuestro archiivos acctions 
+
+// cargamos los estados iniciales cuando arranca el programa
 
 const initialState = {
     recipes: [],
@@ -22,6 +24,10 @@ const initialState = {
     recipesPerPage: 9,
     currentPage: 1
 };
+
+//swicht nos permite segun la accion que llege saber que hacer para mdificar nuestro store
+//actualizamos el stado
+
 
 const rootReducer = (state = initialState, { type, payload }) => {
     switch (type) {
@@ -141,3 +147,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
 };
 
 export default rootReducer;
+
+
+
+/* cada evento dispara un dispatch que lleva una accion 
+(digase evento como una peticion,apretar un boton o un filtro)
+estas acciones llegan aca y se determoina la funcion que debemos realizar 
+para modificar nuestro store
+ */
